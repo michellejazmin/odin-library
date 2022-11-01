@@ -11,13 +11,23 @@ function Book(title, author, pages, read) {
 
 Book.prototype.info = function () {
   if (this.read) {
-    return `${this.title} by ${this.author}, ${this.pages} pages, read`
+    return `${this.title} by ${this.author}, ${this.pages} pages, read`;
   }
   else {
-    return `${this.title} by ${this.author}, ${this.pages} pages, not read yet`
+    return `${this.title} by ${this.author}, ${this.pages} pages, not read yet`;
   }
 }
 
-function addBookToLibrary() {
-  // code
+Book.prototype.toggleRead = function () {
+  this.read = !(this.read);
+}
+
+function addBookToLibrary(title, author, pages, read) {
+  myLibrary.push(new Book(title, author, pages, read));
+}
+
+function displayBooks() {
+  for (book of myLibrary) {
+    book.name
+  }
 }
