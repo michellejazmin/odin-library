@@ -2,6 +2,8 @@
 
 let myLibrary = []
 
+const grid = document.getElementById('library-grid');
+
 function Book(title, author, pages, read) {
   this.title = title,
   this.author = author,
@@ -27,7 +29,31 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 function displayBooks() {
-  for (book of myLibrary) {
-    book.name
+  for (const book of myLibrary) {
+    const newBook = document.createElement('article');
+    newBook.classList.add('book-card');
+
+    const newBookTitle = document.createElement('h2');
+    newBookTitle.classList.add('book-title');
+    newBookTitle.textContent = book.title;
+
+    const newBookAuthor = document.createElement('p');
+    newBookAuthor.classList.add('book-author');
+    newBookAuthor.textContent = book.author;
+
+    const newBookPages = document.createElement('p');
+    newBookPages.classList.add('book-pages');
+    newBookPages.textContent = `${book.pages} pages`;
+
+    const newBookStatus = document.createElement('p');
+    newBookStatus.classList.add('book-status');
+    newBookStatus.textContent = (book.read) ? "Read" : "Not read yet";
+
+    newBook.appendChild(newBookTitle);
+    newBook.appendChild(newBookAuthor);
+    newBook.appendChild(newBookPages);
+    newBook.appendChild(newBookStatus);
+
+    grid.appendChild(newBook);
   }
 }
