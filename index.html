@@ -10,13 +10,36 @@
 </head>
 <body>
   <button id="add-book">Add book</button>
-  <div id="library-grid">
-    <div class="book-card" id="book-0">
-      <h2 class="book-title">Manuelita</h2>
-      <p class="book-author">María Elena Walsh</p>
-      <p class="book-pages">150 pages</p>
-      <p class="book-status">Not read yet</p>
-    </div>
+  <div class="form-container hidden" id="form-container">
+    <form action="index.html" method="post" class="new-book-form" id="add-book-form">
+      <div class="form-row">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" required>
+      </div>
+      <div class="form-row">
+        <label for="author">Author</label>
+        <input type="text" name="author" id="author" required>
+      </div>
+      <div class="form-row">
+        <label for="pages">Pages</label>
+        <input type="number" name="pages" id="pages" required>
+      </div>
+      <fieldset>
+        <legend>Have you read it?</legend>
+        <div class="radio-group">
+          <label for="read">
+            <input type="radio" name="status" id="read" value="read" required>
+            Yes
+          </label>
+          <label for="read">
+            <input type="radio" name="status" id="unread" value="unread" required>
+            No
+          </label>
+        </div>
+      </fieldset>
+      <button type="submit" class="form-button" id="form-button">Add to library</button>
+    </form>
   </div>
+  <div id="library-grid"></div>
 </body>
 </html>
