@@ -4,21 +4,23 @@ let myLibrary = [];
 
 const grid = document.getElementById('library-grid');
 
-function Book(title, author, pages, read) {
-  this.title = title,
-  this.author = author,
-  this.pages = pages,
-  this.read = read
-}
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title,
+    this.author = author,
+    this.pages = pages,
+    this.read = read
+  }
 
-Book.prototype.info = function () {
-  const bookStatus = (this.read) ? 'read' : 'not read yet';
-  
-  return `${this.title} by ${this.author}, ${this.pages} pages, ${bookStatus}`;
-}
+  info() {
+    const bookStatus = (this.read) ? 'read' : 'not read yet';
 
-Book.prototype.toggleRead = function () {
-  this.read = !(this.read);
+    return `${this.title} by ${this.author}, ${this.pages} pages, ${bookStatus}`;
+  }
+
+  toggleRead() {
+    this.read = !(this.read);
+  }
 }
 
 function createBookCard(book) {
